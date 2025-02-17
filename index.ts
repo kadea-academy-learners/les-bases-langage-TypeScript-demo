@@ -8,7 +8,11 @@
  */
 
 // solution :
-
+let nom: string = "John Doe";
+let age: number = 30;
+let estMajeur: boolean = true;
+let nul: null = null;
+let indefini: undefined = undefined;
 // -------------------
 
 /**
@@ -18,7 +22,8 @@
  */
 
 // solution :
-
+let animaux: string[] = ["chien", "Chat"];
+let pourcentages: number[] = [50, 60];
 // -------------------
 
 /**
@@ -29,8 +34,12 @@
  */
 
 // solution :
+function somme(a: number, b: number): number {
+  return a + b;
+}
 
-// -------------------
+let result = somme(10, 5);
+// -----------------
 
 /**
  * Exercice 4 : Interfaces
@@ -39,6 +48,15 @@
  */
 
 // solution :
+interface Personne {
+  nom: string;
+  age: number;
+}
+const PremierePersonne: Personne = {
+  nom: "jeremie",
+  age: 52,
+};
+console.log(`je suis ${PremierePersonne.nom},j'ai ${PremierePersonne.age}`);
 
 // -------------------
 
@@ -51,6 +69,43 @@
  */
 
 // solution :
+class Voiture {
+  private marque: string;
+  private modele: string;
+  constructor(marque: string = "", modele: string = "") {
+    this.marque = marque;
+    this.modele = modele;
+  }
+
+  public getMarque() {
+    return this.marque;
+  }
+
+  public setMarque(marque: string) {
+    this.marque = marque;
+  }
+
+  public getModele() {
+    return this.modele;
+  }
+
+  public setModele(modele: string) {
+    this.modele = modele;
+  }
+
+  public afficherInfo() {
+    console.log(
+      `je suis une voiture de marque: ${this.marque} et de modèle: ${this.modele}`
+    );
+  }
+}
+let mavoiture: Voiture = new Voiture("toyota", "corolla");
+console.log("---- initialisation de ma voiture");
+mavoiture.afficherInfo();
+console.log("---- modification de ma voiture");
+mavoiture.setMarque("Mercedes");
+mavoiture.setModele("207");
+mavoiture.afficherInfo();
 
 // -------------------
 
@@ -62,6 +117,18 @@
  */
 
 // solution :
+function returnFirstElement<T>(params: T[]) {
+  return params[0];
+}
+
+let fruits: string[] = ["banane", "mangue", "bonbon", "abricot"];
+let prix: number[] = [20, 55, 78, 10, 68, 100];
+
+let monFruit = returnFirstElement<string>(fruits);
+let monPrix = returnFirstElement<number>(prix);
+console.log("-----------------");
+console.log(`Mon fruit est : ${monFruit}`);
+console.log(`Mon prix est : ${monPrix}`);
 
 // -------------------
 
@@ -73,7 +140,8 @@
  */
 
 // solution :
-
+let password: string | number = "lol";
+password = 2548;
 // -------------------
 
 /**
@@ -106,3 +174,31 @@
 // solution :
 
 // -------------------
+
+function afficherElements<T>(params: T[]) {
+  params.forEach((element) => {
+    console.log(element);
+  });
+}
+afficherElements([10, 30, 59, 57]);
+afficherElements(["kinshasa", "paris", "bujumbura"]);
+
+enum creneau {
+  Matin = "matin",
+  Midi = "midi",
+  Soir = "soir",
+}
+class kadeaStudent {
+  nom: string;
+  prenom: string;
+  creneau: creneau;
+  constructor(nom: string = "", prenom: string = "", creneau: creneau) {
+    this.nom = nom;
+    this.prenom = prenom;
+    this.creneau = creneau;
+  }
+  getNom() {
+    return this.nom;
+  }
+  get;
+}
