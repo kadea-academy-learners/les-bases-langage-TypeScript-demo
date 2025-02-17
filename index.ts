@@ -8,7 +8,11 @@
  */
 
 // solution :
-
+let nom: string = "alice";
+let age: number = 25;
+let estInscrits: boolean = false;
+let score: null = null;
+let valeurIndefiny: undefined = undefined;
 // -------------------
 
 /**
@@ -18,7 +22,8 @@
  */
 
 // solution :
-
+let prix: number[] = [100, 50, 65];
+let capitales: string[] = ["Kinshasa", "Paris", "Bruxelle"];
 // -------------------
 
 /**
@@ -30,6 +35,11 @@
 
 // solution :
 
+function sum(a: number, b: number): number {
+  return a + b;
+}
+console.log(sum(10, 6));
+
 // -------------------
 
 /**
@@ -39,7 +49,14 @@
  */
 
 // solution :
-
+interface Personne {
+  nom: string;
+  age: number;
+}
+const client: Personne = {
+  nom: "alice",
+  age: 20,
+};
 // -------------------
 
 /**
@@ -51,17 +68,39 @@
  */
 
 // solution :
+class Automobile {
+  protected marque: string;
+  protected modele: string;
+  protected nombrePneux: number;
 
-// -------------------
+  constructor(marque: string = "", modele: string = "", nombrePneux = 0) {
+    this.marque = marque;
+    this.modele = modele;
+    this.nombrePneux = nombrePneux;
+  }
 
-/**
- * Exercice 6 : Génériques
- * Énoncé : Écrivez une fonction générique qui prend
- * un tableau d'éléments de n'importe quel type et retourne
- * le premier élément.
- */
+  getMarque() {
+    return this.marque;
+  }
 
-// solution :
+  setMarque(marque: string) {
+    this.marque = marque;
+  }
+
+  getModele() {
+    return this.modele;
+  }
+
+  setModele(modele: string) {
+    this.modele = modele;
+  }
+
+  afficherInfos() {
+    console.log(
+      `Je suis une voiture de marque ${this.marque} et je suis un modèle ${this.modele}`
+    );
+  }
+}
 
 // -------------------
 
@@ -73,7 +112,8 @@
  */
 
 // solution :
-
+let password: string | number = 123;
+password = "blabla";
 // -------------------
 
 /**
